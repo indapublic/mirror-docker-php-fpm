@@ -1,7 +1,7 @@
 ```
-make build
+make PHP_VERSION=8.2 build
+```
 
-docker tag <id> indapublic/php-fpm:latest
-
-make push
+```
+make PHP_VERSION=8.2 publish
 ```

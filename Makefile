@@ -1,5 +1,5 @@
 build:
-	docker build . -t indapublic:php-fpm
+	docker build --build-arg PHP_VERSION=$(PHP_VERSION) . -t indapublic/php-fpm:$(PHP_VERSION)
 
-push:
-	docker push indapublic/php-fpm:latest
+publish:
+	docker push indapublic/php-fpm:$(PHP_VERSION)
