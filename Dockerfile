@@ -25,4 +25,6 @@ RUN apk del coreutils make
 RUN curl -1sLf "https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh" | sh
 RUN apk add symfony-cli
 
+RUN apk add shadow && usermod -u 1000 www-data
+
 CMD ["php-fpm", "-F"]
