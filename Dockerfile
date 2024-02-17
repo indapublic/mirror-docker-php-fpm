@@ -25,3 +25,5 @@ RUN curl -1sLf "https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh" 
 COPY --from=dependencies /usr/bin/composer /usr/bin/composer
 
 CMD ["php-fpm", "-F"]
+
+EXPOSE 9001
