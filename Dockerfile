@@ -1,6 +1,6 @@
-ARG PHP_VERSION
+ARG PHP_VERSION=8.4
 
-FROM php:${PHP_VERSION}-cli-alpine as dependencies
+FROM php:${PHP_VERSION}-cli-alpine AS dependencies
 
 RUN apk add --update --no-cache \
     coreutils
@@ -9,8 +9,6 @@ RUN echo "$(curl -sS https://composer.github.io/installer.sig) -" > composer-set
     && curl -sS https://getcomposer.org/installer | tee composer-setup.php | sha384sum -c composer-setup.php.sig \
     && php composer-setup.php && rm composer-setup.php* \
     && chmod +x composer.phar && mv composer.phar /usr/bin/composer
-
-ARG PHP_VERSION
 
 FROM php:${PHP_VERSION}-fpm-alpine
 
